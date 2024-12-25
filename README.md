@@ -74,30 +74,15 @@ The Time Tracking App is a comprehensive tool for freelancers and teams to manag
    yarn install
    ```
 
-3. Set up the environment variables:
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   REACT_APP_API_URL=http://localhost:5000
-   MONGO_URI=<your-mongodb-connection-string>
-   JWT_SECRET=<your-secret-key>
-   ```
-
-4. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-5. Start the backend server:
-   Navigate to the backend folder and run:
+ For the backend server:
+   clone the backend repo time-tracker-backend
    ```bash
    npm run dev
    ```
 
 6. Access the application at:
    ```
-   http://localhost:3000
+   http://127.0.0.1:5173/
    ```
 
 ---
