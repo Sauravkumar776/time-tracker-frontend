@@ -16,7 +16,7 @@ export function Dashboard() {
     const billableAmount = timeEntries.reduce((acc, entry) => {
       if (!entry.billable) return acc;
       const project = projects.find(p => p.id === entry.projectId);
-      return acc + ((entry.duration || 0) / 3600) * (project?.rate || 0);
+      return acc + ((entry.duration || 0) / 3600) * (project?.hourlyRate || 0);
     }, 0);
 
     return {

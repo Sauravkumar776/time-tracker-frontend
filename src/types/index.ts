@@ -17,6 +17,8 @@ export interface Team {
 }
 
 export interface Project {
+  tasks?: any[];
+  members?: any[];
   id: string;
   name: string;
   client: string;
@@ -24,7 +26,7 @@ export interface Project {
   description: string;
   color: string;
   teamId?: string;
-  status: 'active' | 'completed' | 'archived';
+  status: 'active' | 'completed' | 'archived' | 'cancelled' | 'paused' | undefined;
   startDate: Date;
   endDate?: Date;
   budget?: number | null;

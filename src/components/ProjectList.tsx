@@ -2,10 +2,12 @@ import React from "react";
 import { Briefcase, Plus } from "lucide-react";
 import { useProjects } from "../hooks/useProjects";
 import { Project } from "../types";
+import { ProjectDetailsModal } from "./projects/ProjectDetailsModal";
 
 export function ProjectList() {
   const { projects, createProject, isLoading, error } = useProjects();
   const [isAdding, setIsAdding] = React.useState(false);
+  const [selectedProject, setSelectedProject] = React.useState<Project | null>(null);
   const [newProject, setNewProject] = React.useState({
     name: "",
     client: "",
@@ -137,25 +139,42 @@ export function ProjectList() {
 
       <div className="grid gap-4">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.id} project={project} onClick={() => setSelectedProject(project)}/>
         ))}
       </div>
+
+
+      {selectedProject && (
+        <ProjectDetailsModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({
+  project,
+  onClick,
+}: {
+  project: Project;
+  onClick: () => void;
+}){
   return (
-<div className="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition-shadow">
+<div onClick={onClick} className="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition-shadow">
+  
   <div className="flex justify-between mb-4">
     <div className="flex items-center gap-3">
       <div
         className="w-4 h-4 rounded-full"
         style={{ backgroundColor: project.color }}
       />
-      <h3 style={{
-        color: project.color
-      }} className={`text-2xl font-semibold`}>{project.name} {project.color}</h3>
+      <h3 
+      // style={{
+      //   color: project.color
+      // }} 
+      className={`text-2xl font-semibold`}>{project.name}</h3>
     </div>
     <div className={`text-lg ${project.status === 'completed' ? 'text-green-500' : project.status === 'active' ? 'text-blue-500' : 'text-gray-500'}`}>
       <p>{project.status}</p>
