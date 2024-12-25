@@ -30,7 +30,7 @@ export function Dashboard() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">Welcome, {user?.name}</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Welcome, {user?.firstName}</h1>
       </div>
 
       <QuickStats stats={stats} />

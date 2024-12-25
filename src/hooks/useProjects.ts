@@ -17,8 +17,8 @@ export function useProjects() {
       setError(null);
       const data = await projectsApi.getProjects();
       setProjects(data);
-    } catch (err) {
-      setError('Failed to load projects');
+    } catch (err: any) {
+      setError(err.message);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -29,12 +29,10 @@ export function useProjects() {
     try {
       setError(null);
       const newProject = await projectsApi.createProject(project);
-      setProjects([...projects, newProject]);
-      return newProject;
-    } catch (err) {
-      setError('Failed to create project');
+      setProjects((prev) => [...prev, newProject]);
+    } catch (err: any) {
+      setError(err.message);
       console.error(err);
-      throw err;
     }
   };
 
@@ -42,12 +40,10 @@ export function useProjects() {
     try {
       setError(null);
       const updatedProject = await projectsApi.updateProject(id, project);
-      setProjects(projects.map(p => p.id === id ? updatedProject : p));
-      return updatedProject;
-    } catch (err) {
-      setError('Failed to update project');
+      setProjects((prev) => prev.map((p) => (p.id === id ? updatedProject : p)));
+    } catch (err: any) {
+      setError(err.message);
       console.error(err);
-      throw err;
     }
   };
 
@@ -55,11 +51,10 @@ export function useProjects() {
     try {
       setError(null);
       await projectsApi.deleteProject(id);
-      setProjects(projects.filter(p => p.id !== id));
-    } catch (err) {
-      setError('Failed to delete project');
+      setProjects((prev) => prev.filter((p) => p.id !== id));
+    } catch (err: any) {
+      setError(err.message);
       console.error(err);
-      throw err;
     }
   };
 

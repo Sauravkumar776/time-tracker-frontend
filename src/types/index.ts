@@ -5,7 +5,7 @@ export interface User {
   lastName: string;
   company: string;
   role: 'admin' | 'manager' | 'employee';
-  hourlyRate?: number;
+  hourlyhourlyRate?: number;
   teamId?: string;
 }
 
@@ -20,13 +20,14 @@ export interface Project {
   id: string;
   name: string;
   client: string;
-  rate: number;
+  hourlyRate: number;
+  description: string;
   color: string;
-  teamId: string;
+  teamId?: string;
   status: 'active' | 'completed' | 'archived';
   startDate: Date;
   endDate?: Date;
-  budget?: number;
+  budget?: number | null;
 }
 
 export interface Task {

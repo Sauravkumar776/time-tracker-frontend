@@ -9,7 +9,7 @@ export function useSocket() {
   useEffect(() => {
     if (!user) return;
 
-    socketRef.current = io('http://localhost:5000', {
+    socketRef.current = io('http://localhost:4421', {
       auth: {
         token: localStorage.getItem('token'),
       },

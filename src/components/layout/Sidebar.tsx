@@ -51,9 +51,9 @@ export function Sidebar() {
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center justify-center h-16 bg-gray-800 text-white">
+          <div className="flex items-center justify-center md:h-16 xl:h-20 bg-gray-800 text-white">
             <Clock className="h-8 w-8" />
-            <span className="ml-2 text-xl font-bold">TimeTracker</span>
+            <span className="ml-2 text-xl font-bold">ClockWorkly</span>
           </div>
 
           {/* User info */}
