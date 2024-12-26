@@ -8,6 +8,7 @@ import {
   BarChart2,
   Settings,
   Menu,
+  ListTodo,
   X
 } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
@@ -20,6 +21,7 @@ export function Sidebar() {
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
     { name: 'Time Tracking', href: '/time', icon: Clock },
     { name: 'Projects', href: '/projects', icon: Briefcase },
+    { name: 'Tasks', href: '/tasks', icon: ListTodo },
     { name: 'Reports', href: '/reports', icon: BarChart2 },
     { name: 'Invoices', href: '/invoices', icon: FileText },
     { name: 'Settings', href: '/settings', icon: Settings },

@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProjectList } from '../components/projects/ProjectList';
+import { TaskList } from '../components/projects/tasks/TaskList';
 import { Briefcase } from 'lucide-react';
 
-export function Projects() {
+export function Tasks() {
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white shadow-sm">
@@ -15,7 +15,7 @@ export function Projects() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
-        <ProjectList />
+      <TaskList tasks={[]} onTaskUpdate={() => {}} />
       </main>
     </div>
   );

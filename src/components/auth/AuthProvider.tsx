@@ -10,7 +10,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (token) {
       api.get('/auth/profile')
         .then(response => {
-          setUser(response.data.user);
+          console.log('this is get user profile api', token, response.data)
+          setUser(response.data);
         })
         .catch(() => {
           localStorage.removeItem('token');

@@ -9,6 +9,7 @@ import { TimeEntries } from './pages/TimeEntries';
 import { Reports } from './pages/Reports';
 import { Invoices } from './pages/Invoices';
 import { Settings } from './pages/Settings';
+import { Tasks } from './pages/Task';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route element={<DashboardLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/tasks" element={<Tasks />} />
             <Route path="/time" element={<TimeEntries />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/invoices" element={<Invoices />} />
