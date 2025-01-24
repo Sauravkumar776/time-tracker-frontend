@@ -10,6 +10,7 @@ import { Reports } from './pages/Reports';
 import { Invoices } from './pages/Invoices';
 import { Settings } from './pages/Settings';
 import { Tasks } from './pages/Task';
+import { ChatButton } from './components/chat/ChatButton';
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
         {/* Redirect any unknown routes */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <ChatButton />
     </BrowserRouter>
   );
 }

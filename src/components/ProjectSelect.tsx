@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTimeStore } from '../store/timeStore';
+import { useProjects } from '../hooks/useProjects';
 
 interface ProjectSelectProps {
   value: string;
@@ -8,7 +9,7 @@ interface ProjectSelectProps {
 }
 
 export function ProjectSelect({ value, onChange, disabled }: ProjectSelectProps) {
-  const { projects } = useTimeStore();
+  const { projects } = useProjects();
 
   return (
     <select
@@ -19,7 +20,7 @@ export function ProjectSelect({ value, onChange, disabled }: ProjectSelectProps)
     >
       <option value="">Select Project</option>
       {projects.map((project) => (
-        <option key={project.id} value={project.id}>
+        <option key={project._id} value={project._id}>
           {project.name}
         </option>
       ))}

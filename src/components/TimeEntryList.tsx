@@ -1,14 +1,16 @@
-import React from 'react';
-import { Clock } from 'lucide-react';
-import { useTimeStore } from '../store/timeStore';
-import { formatDuration } from '../utils/timeUtils';
-import { format } from 'date-fns';
+import React from "react";
+import { Clock } from "lucide-react";
+import { useTimeStore } from "../store/timeStore";
+import { formatDuration } from "../utils/timeUtils";
+import { useProjects } from "../hooks/useProjects";
+import { format } from "date-fns";
 
 export function TimeEntryList() {
-  const { timeEntries, projects } = useTimeStore();
+  const { timeEntries } = useTimeStore();
+  const { projects } = useProjects();
 
   const getProjectName = (projectId: string) => {
-    return projects.find((p) => p.id === projectId)?.name || 'Unknown Project';
+    return projects.find((p) => p._id === projectId)?.name || "Unknown Project";
   };
 
   return (
@@ -33,10 +35,12 @@ export function TimeEntryList() {
               </div>
               <div className="text-right">
                 <p className="font-mono">
-                  {entry.duration ? formatDuration(entry.duration) : 'Running...'}
+                  {entry.duration
+                    ? formatDuration(entry.duration)
+                    : "Running..."}
                 </p>
                 <p className="text-sm text-gray-600">
-                  {format(entry.startTime, 'MMM d, yyyy HH:mm')}
+                  {format(entry.startTime, "MMM d, yyyy HH:mm")}
                 </p>
               </div>
             </div>

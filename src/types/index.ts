@@ -19,7 +19,7 @@ export interface Team {
 export interface Project {
   tasks?: any[];
   members?: any[];
-  id: string;
+  _id: string;
   name: string;
   client: string;
   hourlyRate: number;
@@ -75,4 +75,29 @@ export interface Client {
   company: string;
   billingAddress: string;
   paymentTerms: number;
+}
+
+export interface Organization {
+  id: string;
+  name: string;
+  type: 'company' | 'personal';
+  logo?: string;
+  createdAt: Date;
+}
+
+export interface ProjectMember {
+  userId: string;
+  role: 'owner' | 'admin' | 'member';
+  joinedAt: Date;
+}
+
+export interface ProjectTask {
+  id: string;
+  title: string;
+  description: string;
+  assigneeId?: string;
+  status: 'todo' | 'in_progress' | 'completed';
+  dueDate: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
